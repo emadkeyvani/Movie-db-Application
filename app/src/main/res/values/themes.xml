@@ -1,0 +1,33 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.MovieApplication" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/crayola</item>
+        <item name="colorPrimaryVariant">@color/chinesBlack</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/crayola</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+
+        <item name="android:windowBackground">@color/chinesBlack</item>
+
+    </style>
+
+    <style name="TextViewLightStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="fontFamily">sans-serif-light</item>
+    </style>
+    <!--Text input layout-->
+    <style name="CustomFilledBox" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="hintTextColor">@color/crayola</item>
+        <item name="boxStrokeColor">@color/crayola</item>
+        <item name="boxBackgroundColor">@color/gunmetal</item>
+        <item name="startIconTint">@color/philippineSilver</item>
+        </style>
+
+
+</resources>

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.keyvani.movieapplication.R
 import com.keyvani.movieapplication.databinding.FragmentHomeBinding
+import com.keyvani.movieapplication.ui.home.adapters.GenresAdapter
 import com.keyvani.movieapplication.ui.home.adapters.TopMoviesAdapter
 import com.keyvani.movieapplication.utils.initRecycler
 import com.keyvani.movieapplication.viewmodel.HomeViewModel
@@ -24,6 +25,9 @@ class HomeFragment : Fragment() {
     @Inject
     lateinit var topMoviesAdapter: TopMoviesAdapter
 
+    @Inject
+    lateinit var genresAdapter: GenresAdapter
+
     //Other
     private val viewModel : HomeViewModel by viewModels()
     private val pagerHelper : PagerSnapHelper by lazy { PagerSnapHelper() }
@@ -31,7 +35,8 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //Api call
-        viewModel.loadTopMoviesList(3)
+        viewModel.loadTopMoviesList(1)
+        viewModel.loadGenresList()
     }
 
     override fun onCreateView(
@@ -46,18 +51,30 @@ class HomeFragment : Fragment() {
 
         //InitViews
         binding.apply {
-           //Get data
+           //Get top movies
             viewModel.topMoviesList.observe(viewLifecycleOwner){
                 topMoviesAdapter.differ.submitList(it.data)
                 //RecyclerView
                 rvTopMovies.initRecycler(
                     LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false),
                     topMoviesAdapter
+
                 )
+
                 //Indicator
                 pagerHelper.attachToRecyclerView(rvTopMovies)
                 inTopMovies.attachToRecyclerView(rvTopMovies,pagerHelper)
 
+            }
+            //Get genres
+            viewModel.genresList.observe(viewLifecycleOwner){
+                genresAdapter.differ.submitList(it)
+                //RecyclerView
+                rvGenre.initRecycler(
+                    LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false),
+                    genresAdapter
+
+                )
             }
 
 

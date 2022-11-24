@@ -1,5 +1,6 @@
 package com.keyvani.movieapplication.api
 
+import com.keyvani.movieapplication.response.home.ResponseGenresList
 import com.keyvani.movieapplication.response.home.ResponseMoviesList
 import com.keyvani.movieapplication.response.register.BodyRegister
 import com.keyvani.movieapplication.response.register.ResponseRegister
@@ -15,5 +16,8 @@ interface ApiServices {
 
     @GET("genres/{genre_id}/movies")
     suspend fun moviesTopList(@Path("genre_id") id: Int): Response<ResponseMoviesList>
+
+    @GET("genres")
+    suspend fun genresList() : Response<ResponseGenresList>
 
 }

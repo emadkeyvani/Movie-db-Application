@@ -5,10 +5,7 @@ import com.keyvani.movieapplication.response.home.ResponseMoviesList
 import com.keyvani.movieapplication.response.register.BodyRegister
 import com.keyvani.movieapplication.response.register.ResponseRegister
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface ApiServices {
     @POST("register")
@@ -18,6 +15,12 @@ interface ApiServices {
     suspend fun moviesTopList(@Path("genre_id") id: Int): Response<ResponseMoviesList>
 
     @GET("genres")
-    suspend fun genresList() : Response<ResponseGenresList>
+    suspend fun genresList(): Response<ResponseGenresList>
+
+    @GET("movies")
+    suspend fun lastMovies(): Response<ResponseMoviesList>
+
+    @GET("movies")
+    suspend fun searchMovie(@Query ("q")name:String): Response<ResponseMoviesList>
 
 }

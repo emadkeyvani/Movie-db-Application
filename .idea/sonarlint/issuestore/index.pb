@@ -9,16 +9,10 @@ g
 7app/src/main/java/com/keyvani/movieapplication/MyApp.kt,1\4\14b28dbe624acb02ad52c884e6aaea5f6287cd86
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-z
-Japp/src/main/java/com/keyvani/movieapplication/ui/search/SearchFragment.kt,3\4\347ef05daae92f38bf05a672f3d56e42447b478b
-~
-Napp/src/main/java/com/keyvani/movieapplication/ui/favorite/FavoriteFragment.kt,c\d\cd366086ab0e8df220d5d2b2720d5f927fbbf1b4
 {
 Kapp/src/main/java/com/keyvani/movieapplication/ui/details/DetailFragment.kt,6\b\6b871892404dc8216f474153e253bd91586bb2b4
 ~
 Napp/src/main/java/com/keyvani/movieapplication/ui/register/RegisterFragment.kt,a\7\a73b752dd6effc2f8943adcbb9c182d3736c8b8e
-q
-Aapp/src/main/java/com/keyvani/movieapplication/utils/Constants.kt,f\0\f01665d9db1cd36fd4af05503f0622f5b3b7c0d7
 |
 Lapp/src/main/java/com/keyvani/movieapplication/ui/register/RegisterModule.kt,9\6\9623e98920771569e2f8f7c6bbd009444ef4845a
 €
@@ -41,3 +35,7 @@ q
 Aapp/src/main/java/com/keyvani/movieapplication/utils/Extension.kt,d\7\d734d36394a4906eecc2b233e779ee6bf9dfd8f2
 ƒ
 Sapp/src/main/java/com/keyvani/movieapplication/ui/home/adapters/TopMoviesAdapter.kt,5\2\52f3613bb0958d8f3454f923ba4f3176831139c8
+€
+Papp/src/main/java/com/keyvani/movieapplication/ui/home/adapters/GenresAdapter.kt,0\1\0188eb943261ce6b7a55436e58b9b28abf4c70db
+‚
+Rapp/src/main/java/com/keyvani/movieapplication/response/home/ResponseGenresList.kt,e\7\e75cabdaae694330884d67e2c9219778d00a0da2

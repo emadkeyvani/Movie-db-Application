@@ -43,11 +43,21 @@ class FavoriteAdapter @Inject constructor() : RecyclerView.Adapter<FavoriteAdapt
                     crossfade(true)
                     crossfade(800)
                 }
+                //Click
+                root.setOnClickListener {
+                    onItemClickListener?.let{
+                        it(item)
+                    }
+                }
 
             }
 
-
         }
+    }
+    private var onItemClickListener : ((MovieEntity)->Unit) ?= null
+
+    fun setonItemClickListener (listener : (MovieEntity)->Unit){
+        onItemClickListener = listener
     }
 
     fun setData(data: List<MovieEntity>) {

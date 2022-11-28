@@ -14,7 +14,7 @@ class FavoriteViewModel @Inject constructor(private val repository: FavoriteRepo
     val favoriteList = MutableLiveData<List<MovieEntity>>()
     val empty = MutableLiveData<Boolean>()
 
-    fun loadFavoriteList(name: String) = viewModelScope.launch {
+    fun loadFavoriteList() = viewModelScope.launch {
         val list = repository.allFavoriteList()
         if (list.isNotEmpty()) {
             favoriteList.postValue(list)

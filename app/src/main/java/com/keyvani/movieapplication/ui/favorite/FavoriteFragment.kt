@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.keyvani.movieapplication.databinding.FragmentFavoriteBinding
+import com.keyvani.movieapplication.ui.home.HomeFragmentDirections
 import com.keyvani.movieapplication.utils.initRecycler
 import com.keyvani.movieapplication.viewmodel.FavoriteViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,9 +39,15 @@ class FavoriteFragment : Fragment() {
         //InitViews
         binding.apply {
             //Show All Fav
+            viewModel.loadFavoriteList()
+            //List
             viewModel.favoriteList.observe(viewLifecycleOwner) {
                 favoriteAdapter.setData(it)
                 rvFavoriteMovie.initRecycler(LinearLayoutManager(requireContext()), favoriteAdapter)
+            }
+            favoriteAdapter.setonItemClickListener {
+                val direction = FavoriteFragmentDirections.actionToDetail(it.id)
+                findNavController().navigate(direction)
             }
 
             //Empty items

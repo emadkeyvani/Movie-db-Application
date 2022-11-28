@@ -28,6 +28,11 @@
         <item name="boxBackgroundColor">@color/gunmetal</item>
         <item name="startIconTint">@color/philippineSilver</item>
         </style>
+    <!--RoundedImgView-->
+    <style name="RoundedImgView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
 
 
 </resources>

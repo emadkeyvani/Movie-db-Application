@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.keyvani.movieapplication.databinding.FragmentSearchBinding
+import com.keyvani.movieapplication.ui.home.HomeFragmentDirections
 import com.keyvani.movieapplication.ui.home.adapters.LastMoviesAdapter
 import com.keyvani.movieapplication.utils.initRecycler
 import com.keyvani.movieapplication.viewmodel.SearchViewModel
@@ -52,6 +54,10 @@ class SearchFragment : Fragment() {
                 //RecyclerView
                 rvSearchedMovie.initRecycler(LinearLayoutManager(requireContext()), searchAdapter)
 
+            }
+            searchAdapter.setonItemClickListener {
+                val direction = SearchFragmentDirections.actionToDetail(it.id!!)
+                findNavController().navigate(direction)
             }
             //Loading
             viewModel.loading.observe(viewLifecycleOwner) {

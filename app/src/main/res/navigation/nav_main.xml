@@ -38,9 +38,16 @@
         android:name="com.keyvani.movieapplication.ui.favorite.FavoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" />
+    <action
+        android:id="@+id/actionToDetail"
+        app:destination="@id/detailFragment" />
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.keyvani.movieapplication.ui.details.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_detail" />
+        tools:layout="@layout/fragment_detail" >
+        <argument
+            android:name="movieID"
+            app:argType="integer" />
+    </fragment>
 </navigation>

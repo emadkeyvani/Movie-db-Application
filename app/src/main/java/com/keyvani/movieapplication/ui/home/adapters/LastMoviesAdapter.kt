@@ -15,7 +15,7 @@ class LastMoviesAdapter @Inject constructor() : RecyclerView.Adapter<LastMoviesA
 
     //Binding
     private lateinit var binding: ItemHomeMoviesLastBinding
-    private var movieList = emptyList<ResponseMoviesList.Data>()
+    private var movieList = emptyList<Data>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -32,7 +32,7 @@ class LastMoviesAdapter @Inject constructor() : RecyclerView.Adapter<LastMoviesA
 
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
-        fun bindItems(item: ResponseMoviesList.Data) {
+        fun bindItems(item: Data) {
             binding.apply {
                 tvMovieName.text = item.title
                 tvMovieRate.text = item.imdbRating
@@ -42,6 +42,12 @@ class LastMoviesAdapter @Inject constructor() : RecyclerView.Adapter<LastMoviesA
                     crossfade(true)
                     crossfade(800)
                 }
+                //Click
+                root.setOnClickListener {
+                    onItemClickListener?.let{
+                        it(item)
+                    }
+                }
 
             }
 
@@ -49,7 +55,13 @@ class LastMoviesAdapter @Inject constructor() : RecyclerView.Adapter<LastMoviesA
         }
     }
 
-    fun setData(data: List<ResponseMoviesList.Data>) {
+    private var onItemClickListener : ((Data)->Unit) ?= null
+
+    fun setonItemClickListener (listener : (Data)->Unit){
+        onItemClickListener = listener
+    }
+
+    fun setData(data: List<Data>) {
         val moviesDiffUtil = MoviesDiffUtils(movieList, data)
         val diffUtils = DiffUtil.calculateDiff(moviesDiffUtil)
         movieList = data
@@ -58,7 +70,7 @@ class LastMoviesAdapter @Inject constructor() : RecyclerView.Adapter<LastMoviesA
     }
 
     class MoviesDiffUtils(
-        private val oldItem: List<ResponseMoviesList.Data>, private val newItem: List<ResponseMoviesList.Data>
+        private val oldItem: List<Data>, private val newItem: List<Data>
     ) :
         DiffUtil.Callback() {
         override fun getOldListSize(): Int {

@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import com.keyvani.movieapplication.R
@@ -93,6 +94,11 @@ class HomeFragment : Fragment() {
 
                 )
 
+            }
+            //Click
+            lastMoviesAdapter.setonItemClickListener {
+                val direction = HomeFragmentDirections.actionToDetail(it.id!!.toInt())
+                findNavController().navigate(direction)
             }
             //Loading
             viewModel.loading.observe(viewLifecycleOwner){

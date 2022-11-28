@@ -1,5 +1,6 @@
 package com.keyvani.movieapplication.api
 
+import com.keyvani.movieapplication.response.datail.ResponseDetail
 import com.keyvani.movieapplication.response.home.ResponseGenresList
 import com.keyvani.movieapplication.response.home.ResponseMoviesList
 import com.keyvani.movieapplication.response.register.BodyRegister
@@ -22,5 +23,8 @@ interface ApiServices {
 
     @GET("movies")
     suspend fun searchMovie(@Query ("q")name:String): Response<ResponseMoviesList>
+
+    @GET("movies/{movie_id}")
+    suspend fun detailMovie(@Path ("movie_id")id:Int): Response<ResponseDetail>
 
 }

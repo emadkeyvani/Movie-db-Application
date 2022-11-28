@@ -14,7 +14,10 @@ Overview :
 Screen-shot
 <br>
 
+
+* Sign in
 <img alt="emadkeyvani Movie-db-Application" src="/screenshots/06.png" width="20%">
+* Splash screen
 <img alt="emadkeyvani Movie-db-Application" src="/screenshots/05.png" width="20%">
 <img alt="emadkeyvani Movie-db-Application" src="/screenshots/01.png" width="20%">
 <img alt="emadkeyvani Movie-db-Application" src="/screenshots/02.png" width="20%">

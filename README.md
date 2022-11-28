@@ -15,15 +15,15 @@ Screen-shot
 <br>
 
 
-* Sign in
+  * Sign in
 <img alt="emadkeyvani Movie-db-Application" src="/screenshots/06.png" width="20%">
-* Splash screen
+  * Splash screen
 <img alt="emadkeyvani Movie-db-Application" src="/screenshots/05.png" width="20%">
-* Home
+  * Home
 <img alt="emadkeyvani Movie-db-Application" src="/screenshots/01.png" width="20%">
-* Movie details
+  * Movie details
 <img alt="emadkeyvani Movie-db-Application" src="/screenshots/02.png" width="20%">
-* Real time search
+  * Real time search
 <img alt="emadkeyvani Movie-db-Application" src="/screenshots/03.png" width="20%">
-* Favorites
+  * Favorites
 <img alt="emadkeyvani Movie-db-Application" src="/screenshots/04.png" width="20%">

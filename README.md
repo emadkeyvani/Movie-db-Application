@@ -2,6 +2,7 @@
 
 Overview :
 * Retrofit
+* Room
 * Coil
 * Gson
 * ViewBinding

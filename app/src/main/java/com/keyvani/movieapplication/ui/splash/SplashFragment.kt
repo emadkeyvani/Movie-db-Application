@@ -40,9 +40,12 @@ class SplashFragment : Fragment() {
                 } else {
                     findNavController().navigate(R.id.actionToHome)
                 }
+
             }
         }
 
+
     }
+
 
 }

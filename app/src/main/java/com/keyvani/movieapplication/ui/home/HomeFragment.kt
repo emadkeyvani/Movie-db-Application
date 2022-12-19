@@ -1,10 +1,14 @@
 package com.keyvani.movieapplication.ui.home
 
+import android.content.Context
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,6 +38,7 @@ class HomeFragment : Fragment() {
     lateinit var lastMoviesAdapter: LastMoviesAdapter
 
     //Other
+    var doubleBackToExitPressedOnce = false
     private val viewModel: HomeViewModel by viewModels()
     private val pagerHelper: PagerSnapHelper by lazy { PagerSnapHelper() }
 
@@ -116,4 +121,19 @@ class HomeFragment : Fragment() {
         }
 
     }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (doubleBackToExitPressedOnce) {
+                    activity?.finish()
+                }
+                doubleBackToExitPressedOnce = true
+                Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 2000)
+                Toast.makeText(requireContext(), "Double press to exit", Toast.LENGTH_SHORT).show()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(this, callback)
+    }
+
 }
